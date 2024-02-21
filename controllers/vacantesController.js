@@ -61,5 +61,5 @@ exports.editarVacante = async (req, res) => {
         runValidators: true
     })
 
-    res.redirect(`/vacantes/${vacante}`)
+    res.redirect(`/vacantes/${vacante.url}`)
 }
