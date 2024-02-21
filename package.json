@@ -1,0 +1,35 @@
+{
+  "name": "protojobssite",
+  "version": "1.0.0",
+  "description": "Portar de empleos NodeJs, MongoDb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./index",
+    "start": "concurrently \" npm run dev\" \"npm run watch\" ",
+    "watch": "webpack watch --mode development"
+  },
+  "author": "Antonio",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "connect-mongo": "^2.0.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.1.3",
+    "shortid": "^2.2.16",
+    "slug": "^8.2.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "babel-loader": "^9.1.3",
+    "cli": "^1.0.1",
+    "nodemon": "^3.0.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
