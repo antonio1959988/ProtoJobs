@@ -7,7 +7,9 @@ exports.formularioNuevaVacante = (req, res) => {
     
     res.render('nueva-vacante', {
         nombrePagina: 'Nueva Vacante',
-        tagline: 'Llena el formulario y publica tu vacante'
+        tagline: 'Llena el formulario y publica tu vacante',
+        cerrarSesion: true,
+        nombre: req.user.nombre,
     })
 }
 
@@ -15,6 +17,9 @@ exports.formularioNuevaVacante = (req, res) => {
 exports.agregarVacante = async (req, res) => {
 
     const vacante = new Vacante(req.body)
+
+    // Usuario autor de la vacante
+    vacante.autor = req.user._id
 
     // Crear arreglo de skills
     vacante.skills = req.body.skills.split(',')
@@ -48,7 +53,9 @@ exports.formEditarVacante = async (req, res, next) => {
 
     res.render('editar-vacante', {
         vacante,
-        nombrePagina: `Editar - ${vacante.titulo}`
+        nombrePagina: `Editar - ${vacante.titulo}`,
+        cerrarSesion: true,
+        nombre: req.user.nombre,
     })
 }
 
