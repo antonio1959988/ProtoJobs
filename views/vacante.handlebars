@@ -56,3 +56,40 @@
         </ul>
     </aside>
 </div>
+
+<div class="contenedor datos-reclutador">
+    <div class="enviar-datos">
+        <h2>Contactar Reclutador</h2>
+        <p>Llena el siguiente formulario, sube tu CV y proto te contactaremos</p>
+
+        <form method="post" action="/vacantes/{{vacante.url}}" class="default-form" enctype="multipart/form-data">
+            <div class="campo">
+                <label>Nombre</label>
+                <input type="text" name="nombre" placeholder="Tu Nombre">
+            </div>
+
+            <div class="campo">
+                <label>E-Mail</label>
+                <input type="email" name="email" placeholder="Tu E-Mail">
+            </div>
+
+            <div class="campo">
+                <label>CV (PDF)</label>
+                <input type="file" name="cv">
+            </div>
+
+            <div class="campo">
+                <input type="submit" value="Enviar" class="btn btn-verde">
+            </div>
+        </form>
+    </div>
+    <div class="info-reclutador">
+        <h2>Informaciòn Reclutador</h2>
+        {{#if vacante.autor.nombre}}
+            <p>{{vacante.autor.nombre}}</p>
+        {{/if}}
+        {{#if vacante.autor.imagen}}
+            <img src="/uploads/perfiles/{{vacante.autor.imagen}}" alt="Perfil">
+        {{/if}}
+    </div>
+</div>

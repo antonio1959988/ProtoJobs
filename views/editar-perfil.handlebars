@@ -1,18 +1,24 @@
 <main class="contenedor">
-    <form action="/editar-perfil" class="default-form" method="post">
+    <form action="/editar-perfil" class="default-form" method="post" enctype="multipart/form-data">
         <div class="campo">
             <label>Nombre</label>
-            <input type="text" name="nombre" placeholder="Tu Nombre" value="{{usuario.nombre}}" required>
+            <input type="text" name="nombre" placeholder="Tu Nombre" value="{{usuario.nombre}}">
         </div>
 
         <div class="campo">
             <label>E-mail</label>
-            <input type="email" value="{{usuario.email}}" name="email" placeholder="Tu E-Mail" required>
+            <input type="email" value="{{usuario.email}}" name="email" placeholder="Tu E-Mail">
         </div>
 
         <div class="campo">
             <label>Password</label>
             <input type="password" name="password" placeholder="Tu Password">
+        </div>
+
+        <div class="campo">
+            <label>Imagen</label>
+            <input type="file" name="imagen" placeholder="Tu imagen de perfil">
+            <img src="uploads/perfiles/{{usuario.imagen}}" alt="" class="Imagen Perfil">
         </div>
 
         <div class="campo">

@@ -29,6 +29,19 @@ exports.mostrarPanel =async(req, res) => {
         tagLine: 'Crea y administra tus vacantes desde aqui',
         cerrarSesion: true,
         nombre: req.user.nombre,
+        imagen: req.user.imagen,
         vacantes
     })
+}
+
+exports.cerrarSesion = (req, res, next) => {
+    req.logout(function(err){
+        if(err) {
+            return next(err);
+        }
+        req.flash('correcto', 'Cerraste Sesión Correctamente')
+        return res.redirect('/iniciar-sesion')
+    });
+ 
+    
 }

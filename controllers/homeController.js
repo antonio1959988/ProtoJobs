@@ -7,10 +7,13 @@ exports.mostrarTrabajos = async(req, res, next) => {
 
     if(!vacantes) return next()
 
+    const barra = req.user ? false : true
+
     res.render('home', {
         nombrePagina: 'ProtoJobs',
         tagline: 'Encuentra y publica trabajos',
-        barra: true,
+        barra,
+        nombre : false,
         boton: true,
         vacantes
     })
