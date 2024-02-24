@@ -43,10 +43,13 @@ exports.mostrarVacante = async (req, res, next) => {
     // Si no hay resultados
     if(!vacante) return next()
 
+    const user = req.user ? true : false
+
     res.render('vacante', {
         vacante,
         nombrePagina: vacante.titulo,
-        barra: true
+        barra: true,
+        user
     })
 }
 
