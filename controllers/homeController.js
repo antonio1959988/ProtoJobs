@@ -7,7 +7,13 @@ exports.mostrarTrabajos = async(req, res, next) => {
 
     if(!vacantes) return next()
 
-    const barra = req.user ? false : true
+    let barra = true
+    let admin = false
+    
+    if(req.user){
+        barra = false,
+        admin = true
+    }
 
     res.render('home', {
         nombrePagina: 'ProtoJobs',
@@ -15,6 +21,7 @@ exports.mostrarTrabajos = async(req, res, next) => {
         barra,
         nombre : false,
         boton: true,
-        vacantes
+        vacantes,
+        admin
     })
 }
